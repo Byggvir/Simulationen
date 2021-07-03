@@ -36,25 +36,37 @@ par(  mar = c(10,10,10,10)
       , bg = rgb(0.95,0.95,0.95,1)
 )
 
-
-plot(  xy[,1:2]
-     , xlim= c(0,1)
-     , ylim= c(0,1)
+plot(  xy[xy$r2<=1,1:2]
+     , xlim = c(0,1)
+     , ylim = c(0,1)
      , main = "Estimate of Pi"
      , cex.main = 5
      , cex.sub = 3
      , cex.lab = 2
+     , col = "red"
      )
+par (new=TRUE)
+
+plot(  xy[xy$r2>1,1:2]
+       , xlim = c(0,1)
+       , ylim = c(0,1)
+       , main = ""
+       , xlab =""
+       , ylab = ""
+       , col = "black"
+)
+
 title ( sub = paste("π ≈",pi)
         , line = 6
         , cex.sub = 3
 )
 
 par ( new=TRUE)
+
 curve( sqrt(1-x^2)
        , from=0
        , to=1
-       , col = "red"
+       , col = "green"
        , xlab=""
        , ylab="")
 
